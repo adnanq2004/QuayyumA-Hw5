@@ -20,9 +20,9 @@ int main() {
 
   printf("\nDecimal Adresses\n");
 
-  printf("decimal address of char: %lld\n", &var_char);
-  printf("decimal address of int: %lld\n", &var_int);
-  printf("decimal address of long: %lld\n", &var_long);
+  printf("decimal address of char: %lu\n", &var_char);
+  printf("decimal address of int: %lu\n", &var_int);
+  printf("decimal address of long: %lu\n", &var_long);
 
   printf("\nPointers' Values\n");
 
@@ -30,9 +30,9 @@ int main() {
   int* int_pointer = &var_int;
   long* long_pointer = &var_long;
 
-  printf("pointer of char: %c\n", *char_pointer);
-  printf("pointer of int: %d\n", *int_pointer);
-  printf("pointer of long: %ld\n", *long_pointer);
+  printf("pointer of char: %p\n", *char_pointer);
+  printf("pointer of int: %p\n", *int_pointer);
+  printf("pointer of long: %p\n", *long_pointer);
 
   printf("\nChanged Pointers' Values\n");
 
@@ -56,8 +56,8 @@ int main() {
 
   printf("new unsigned int: %u\n", var_unsigned_int);
 
-  int* unsigned_int_pointer1 = &var_unsigned_int;
-  char* unsigned_int_pointer2 = &var_unsigned_int;
+  int *unsigned_int_pointer1 = &var_unsigned_int;
+  char *unsigned_int_pointer2 = &var_unsigned_int;
 
   printf("\nUnsigned Int Pointers\n");
 
@@ -69,22 +69,40 @@ int main() {
   printf("hex of unsigned int: %x\n", var_unsigned_int);
   printf("decimal of unsigned int: %u\n", var_unsigned_int);
 
-  printf("\nIndividual Bytes of an Unsigned Int\n");
+  printf("\nIndividual Bytes of an Unsigned Int Char Pointer\n");
 
-  printf("unsigned hex: %hhx\n", unsigned_int_pointer2);
-  printf("unsigned decimal: %hhu\n", unsigned_int_pointer2);
+  printf("individual hex byte 1: %hhx\n", *(unsigned_int_pointer2));
+  printf("individual hex byte 2: %hhx\n", *(unsigned_int_pointer2+1));
+  printf("individual hex byte 3: %hhx\n", *(unsigned_int_pointer2+2));
+  printf("individual hex byte 4: %hhx\n", *(unsigned_int_pointer2+3));
 
-  printf("\nIncrement Each Byte\n");
+  printf("\nIncrement Each Byte by 1\n");
   
-  unsigned_int_pointer2++;
-  printf("incremented by 1 unsigned hex: %hhx\n", unsigned_int_pointer2);
-  printf("incremented by 1 unsigned decimal: %hhu\n", unsigned_int_pointer2);
+  (*(unsigned_int_pointer2))++;
+  (*(unsigned_int_pointer2+1))++;
+  (*(unsigned_int_pointer2+2))++;
+  (*(unsigned_int_pointer2+3))++;
+  
+  //printf("incremented by 1 unsigned hex: %x\n", *unsigned_int_pointer2);
+  //printf("incremented by 1 unsigned decimal: %u\n", *unsigned_int_pointer2);
+  printf("individual hex byte 1: %hhx\n", *(unsigned_int_pointer2));
+  printf("individual hex byte 2: %hhx\n", *(unsigned_int_pointer2+1));
+  printf("individual hex byte 3: %hhx\n", *(unsigned_int_pointer2+2));
+  printf("individual hex byte 4: %hhx\n", *(unsigned_int_pointer2+3));
 
-  printf("\n");
+  printf("\nIncrement Each Byte by 16\n");
 
-  unsigned_int_pointer2 += 16;
-  printf("incremented by 16 unsigned hex: %hhx\n", unsigned_int_pointer2);
-  printf("incremented by 16 unsigned decimal: %hhu\n", unsigned_int_pointer2);
+  (*(unsigned_int_pointer2))+=16;
+  (*(unsigned_int_pointer2+1))+=16;
+  (*(unsigned_int_pointer2+2))+=16;
+  (*(unsigned_int_pointer2+3))+=16;
+  
+  //printf("incremented by 16 unsigned hex: %x\n", *unsigned_int_pointer2);
+  //printf("incremented by 16 unsigned decimal: %u\n", *unsigned_int_pointer2);
+  printf("individual hex byte 1: %hhx\n", *(unsigned_int_pointer2));
+  printf("individual hex byte 2: %hhx\n", *(unsigned_int_pointer2+1));
+  printf("individual hex byte 3: %hhx\n", *(unsigned_int_pointer2+2));
+  printf("individual hex byte 4: %hhx\n", *(unsigned_int_pointer2+3));
 
   printf("\n");
   return 0;
